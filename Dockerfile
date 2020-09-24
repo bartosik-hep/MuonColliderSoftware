@@ -15,10 +15,14 @@ RUN yum -y install epel-release yum-utils wget
 RUN yum-config-manager --set-enabled PowerTools
 RUN yum-config-manager --set-enabled AppStream
 
+RUN wget -O /etc/yum.repos.d/EGI-trustanchors.repo http://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo
 RUN yum -y localinstall http://artifacts.pd.infn.it/packages/CAP/misc/CentOS8/noarch/ca_TERENA-SSL-CA-3-1.0-2.el8.noarch.rpm
-
+RUN yum -y install ca-policy-egi-core
+RUN ln -s /etc/grid-security/certificates/USERTrustRSACertificationAuthority.pem /etc/pki/ca-trust/source/anchors/			
 RUN wget -O /etc/yum.repos.d/geant4.repo http://artifacts.pd.infn.it/packages/MuonColliderSoft/repos/CentOS8/geant4.repo
+RUN ln -s /etc/grid-security/certificates/GEANTeScienceSSLCA4.pem /etc/pki/ca-trust/source/anchors/					
 RUN wget -O /etc/yum.repos.d/muoncollidersoft.repo http://artifacts.pd.infn.it/packages/MuonColliderSoft/repos/CentOS8/muoncollidersoft.repo
+RUN update-ca-trust extract
 
 RUN yum -y install vim-enhanced xorg-x11-xauth screen git subversion rsync make \
                sshpass zip doxygen rpm-build gcc gcc-c++ \
@@ -56,7 +60,7 @@ RUN wget -O releases/development/release-versions.py http://artifacts.pd.infn.it
 RUN sed -i "s|/usr/bin/env python|/usr/bin/env python2|g" ilcsoft-install
 RUN ./ilcsoft-install releases/development/release-base.cfg --install-prefix=/opt/ilcsoft -v -i
 #da errore:
-#RUN ./ilcsoft-install releases/development/release-ilcsoft.cfg --install-prefix=/opt/ilcsoft -v -i
+RUN ./ilcsoft-install releases/development/release-ilcsoft.cfg --install-prefix=/opt/ilcsoft -v -i
 
 #WORKDIR /opt/ilcsoft/v02-01-pre
 #RUN git clone https://github.com/MuonColliderSoft/detector-simulation.git
