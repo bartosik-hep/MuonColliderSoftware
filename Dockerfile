@@ -60,7 +60,7 @@ RUN wget -O releases/development/release-versions.py http://artifacts.pd.infn.it
 RUN sed -i "s|/usr/bin/env python|/usr/bin/env python2|g" ilcsoft-install
 RUN ./ilcsoft-install releases/development/release-base.cfg --install-prefix=/opt/ilcsoft -v -i
 #da errore:
-RUN ./ilcsoft-install releases/development/release-ilcsoft.cfg --install-prefix=/opt/ilcsoft -v -i
+#RUN ./ilcsoft-install releases/development/release-ilcsoft.cfg --install-prefix=/opt/ilcsoft -v -i
 
 #WORKDIR /opt/ilcsoft/v02-01-pre
 #RUN git clone https://github.com/MuonColliderSoft/detector-simulation.git
