@@ -1,5 +1,5 @@
-# build with: docker build --tag leggerf/centos .
-# run with: docker run --rm -it -e DISPLAY=$DISPLAY leggerf/centos
+# build with: docker build --tag leggerf/centos-mc .
+# run with: docker run --rm -it -e DISPLAY=$DISPLAY leggerf/centos-mc
 
 FROM centos:8
 
