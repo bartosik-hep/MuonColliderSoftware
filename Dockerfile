@@ -14,5 +14,4 @@ WORKDIR /data
 RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
 WORKDIR /data/MuonCutil/SoftCheck
 
-# fix to run ced2go
-RUN export USER='pippo'
+COPY test.sh  /data/MuonCutil/SoftCheck/test.sh
