@@ -5,7 +5,7 @@ Collection of scripts for Muon Collider software, based on:
 - Muon Collider software installation in (Confluence)[https://confluence.infn.it/display/muoncollider/Software+installation]
 - Dockerfiles in (Github)[https://github.com/MuonColliderSoft/MuonCollider-docker]
 
-# Installation with Docker
+## Installation with Docker
 
 ```
 git clone https://github.com/MuonColliderSoft/MuonCollider-docker.git
@@ -32,7 +32,7 @@ or (on MacOS):
 
 ```./run_mac.sh```
 
-# Test
+## Test
 
 Once inside your docker image, you should be in /data/MuonCutil/SoftCheck. Then you can just run the following steps:
 
