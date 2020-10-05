@@ -13,3 +13,6 @@ FROM infnpd/mucoll-ilc-framework:1.1-centos8
 WORKDIR /data
 RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
 WORKDIR /data/MuonCutil/SoftCheck
+
+# fix to run ced2go
+RUN export USER='pippo'
