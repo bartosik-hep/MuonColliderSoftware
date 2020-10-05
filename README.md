@@ -44,7 +44,12 @@ Once inside your docker image, you should be in /data/MuonCutil/SoftCheck. Then 
 
 ```Marlin --InitDD4hep_mod4.DD4hepXMLFile=/opt/ilcsoft/v02-02-MC/detector-simulation/geometries/CLIC_o3_v14_mod4/CLIC_o3_v14.xml reco_steer.xml > reco.out```
 
-- Event display
+- Event display (doesn't work atm)
 
 ```ced2go -d /opt/ilcsoft/v02-02-MC/detector-simulation/geometries/CLIC_o3_v14_mod4/CLIC_o3_v14.xml Output_REC.slcio```
+
+or directly execute:
+
+```./test.sh```
+
 
