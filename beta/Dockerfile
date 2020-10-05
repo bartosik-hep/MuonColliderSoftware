@@ -62,13 +62,19 @@ RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
 # Move to installation directory
 
 WORKDIR /opt
+RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
+WORKDIR /opt/MuonCutil
+RUN git checkout v02-02-MC
+
+WORKDIR /opt
 RUN git clone https://github.com/iLCSoft/iLCInstall.git 
 WORKDIR /opt/iLCInstall
-RUN mkdir releases/development
+RUN git checkout v02-02
 
 # Copy the last configuration files
 
-RUN cp /MuonCutil/releases/development/* releases/development
+RUN mkdir releases/development
+RUN cp /opt/MuonCutil/releases/development/* releases/development
 
 # Change ilcsoft-install to force to use python2
 
@@ -83,16 +89,23 @@ RUN ./ilcsoft-install releases/development/release-ilcsoft.cfg --install-prefix=
 
 # For the MuonCollider we update the detector's geometry
 
-#RUN cd /opt/ilcsoft/v02-02-MC
-#RUN git clone https://github.com/MuonColliderSoft/detector-simulation.git
-#RUN Post installation
+WORKDIR /opt/ilcsoft/v02-02-MC
+RUN git clone https://github.com/MuonColliderSoft/detector-simulation.git
+
+# Post installation
 
 # Change ced2go to force to use python2
 
-#RUN sed -i 's|/bin/env python|/usr/bin/env python2|g' /opt/ilcsoft/v02-02-MC/CEDViewer/v01-17-01/bin/ced2go
+RUN sed -i 's|/bin/env python|/usr/bin/env python2|g' /opt/ilcsoft/v02-02-MC/CEDViewer/v01-17-01/bin/ced2go
 
 # Source the right file to set the software environment
 
-#RUN cat << EOF > /etc/profile.d/ilcsoft.sh
-#RUN source /opt/ilcsoft/v02-02-MC/init_ilcsoft.sh
-#RUN EOF
+RUN echo 'source /opt/ilcsoft/v02-02-MC/init_ilcsoft.sh' > /etc/profile.d/ilcsoft.sh
+
+# Test
+
+# To check your installation you can use the following simple tests. You need again the utils repository, so clone it again as user:
+
+WORKDIR /data
+RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
+WORKDIR /data/MuonCutil/SoftCheck
