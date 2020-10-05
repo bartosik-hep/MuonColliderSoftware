@@ -1,5 +1,5 @@
-# build with: docker build --tag leggerf/centos .
-# run with: docker run --rm -it -v $PWD:/data/ -e DISPLAY=$DISPLAY leggerf/centos
+# build with: docker build --tag leggerf/centos-beta .
+# run with: docker run --rm -it -v $PWD:/data/ -e DISPLAY=$DISPLAY leggerf/centos-beta
 
 FROM centos:8
 
@@ -48,9 +48,11 @@ RUN sed -i 's|include_next|include|g' /usr/include/c++/8/bits/std_abs.h
 RUN sed -i 's|include_next|include|g' /usr/include/c++/8/cmath
 
 # Add this line: #undef _GLIBCXX_ASSERTIONS at the end of the following files just before the last endif
-
 # /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h
 # /usr/include/c++/8/x86_64-redhat-linux/32/bits/c++config.h
+
+COPY c++config.h /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h
+COPY c++config_32.h /usr/include/c++/8/x86_64-redhat-linux/32/bits/c++config.h
 
 # Installation
 # Build setup
@@ -101,7 +103,7 @@ RUN sed -i 's|/bin/env python|/usr/bin/env python2|g' /opt/ilcsoft/v02-02-MC/CED
 # Source the right file to set the software environment
 
 RUN echo 'source /opt/ilcsoft/v02-02-MC/init_ilcsoft.sh' > /etc/profile.d/ilcsoft.sh
-
+    
 # Test
 
 # To check your installation you can use the following simple tests. You need again the utils repository, so clone it again as user:

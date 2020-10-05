@@ -1,1 +1,1 @@
-docker build --tag leggerf/centos-mc .
+docker build --tag leggerf/mucoll-test .
