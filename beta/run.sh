@@ -1,1 +1,1 @@
-docker run --rm -it -v $PWD:/data/ -e DISPLAY=$DISPLAY leggerf/centos-beta
+docker run --rm -it -v $PWD:/shared/ -e DISPLAY=$DISPLAY leggerf/centos-beta

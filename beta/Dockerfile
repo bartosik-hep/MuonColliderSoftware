@@ -111,3 +111,5 @@ RUN echo 'source /opt/ilcsoft/v02-02-MC/init_ilcsoft.sh' > /etc/profile.d/ilcsof
 WORKDIR /data
 RUN git clone https://github.com/MuonColliderSoft/MuonCutil.git
 WORKDIR /data/MuonCutil/SoftCheck
+
+COPY test.sh  /data/MuonCutil/SoftCheck/test.sh
