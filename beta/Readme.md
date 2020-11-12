@@ -2,6 +2,8 @@
 
 ## Installation with Docker
 
+```cd beta```
+
 You can just build the test docker image with:
 
 ```./build.sh```
