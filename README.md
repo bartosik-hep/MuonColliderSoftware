@@ -1,13 +1,12 @@
 # MuonColliderSoftware
 
 There are two ways to setup a Docker container:
-- rely on the Dockerfiles provided by the Muon Collider collaboration in [https://github.com/MuonColliderSoft/MuonCollider-docker](Github). Instructions [here].(#installation-with-official-dockerfiles)
-- use my Dockerfile, based on the instructions provided in [https://confluence.infn.it/display/muoncollider/Software+installation](Confluence). Instructions [here](beta/Readme.md).
+- rely on the Dockerfiles provided by the Muon Collider collaboration in [Github](https://github.com/MuonColliderSoft/MuonCollider-docker). Instructions [here](#installation-with-official-dockerfiles).
+- use my Dockerfile, based on the instructions provided in [Confluence](https://confluence.infn.it/display/muoncollider/Software+installation). Instructions [here](beta/Readme.md).
 
 ## Installation with official Dockerfiles
 
 This installation relies on the Dockerfiles provided by the Muon Collider collaboration in [https://github.com/MuonColliderSoft/MuonCollider-docker](Github).
-My version of the Dockerfile, 
 
 ```
 git clone https://github.com/MuonColliderSoft/MuonCollider-docker.git
