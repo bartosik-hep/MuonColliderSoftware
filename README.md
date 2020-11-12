@@ -2,8 +2,8 @@
 
 Collection of scripts for Muon Collider software, based on:
 
-- Muon Collider software installation in (Confluence)[https://confluence.infn.it/display/muoncollider/Software+installation]
-- Dockerfiles in (Github)[https://github.com/MuonColliderSoft/MuonCollider-docker]
+- Muon Collider software installation in [https://confluence.infn.it/display/muoncollider/Software+installation](Confluence)
+- Dockerfiles in [https://github.com/MuonColliderSoft/MuonCollider-docker](Github)
 
 ## Installation with Docker
 
