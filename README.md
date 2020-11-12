@@ -21,9 +21,13 @@ cd ../../
 docker build --tag leggerf/mucoll-test .
 ```
 
-or, after having cloned the repository, you can just build your test docker image with:
+or simply:
 
-```./build.sh```
+```
+git clone https://github.com/MuonColliderSoft/MuonCollider-docker.git
+
+./build.sh
+```
 
 and execute it with:
 
